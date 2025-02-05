@@ -61,6 +61,13 @@ class CreditsState extends MusicBeatState
 				'about:blank',
 				'0080ff' // why tf is the formatting like this
 			],
+			[
+				'betopia',
+				'betpowo',
+				'GF + Speaker files',
+				'about:blank',
+				'f52c6f' // why tf is the formatting like this
+			],
 			['P-Slice Engine Team'],
 			['Mikolka9144',			'mikolka',			'Did everything for P-slice',								 'https://gamebanana.com/members/3329541',									'2ebcfa'],
 			['mcagabe19',			'lily',             'Porter of P-slice for mobile devices and creator of linc_luajit-rewritten (used for mobile builds)',                       'https://youtube.com/@mcagabe19',		'FFE7C0'],
