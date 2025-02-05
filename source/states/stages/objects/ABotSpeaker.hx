@@ -32,18 +32,18 @@ class ABotSpeaker extends FlxSpriteGroup
 		return snd;
 	}
 
-	public function new(x:Float = 0, y:Float = 0,useDark:Bool = false)
+	public function new(x:Float = 0, y:Float = 0,invisOutside:Bool = false)
 	{
 		super(x, y);
 
 		var antialias = ClientPrefs.data.antialiasing;
-		bg = new FlxSprite(90, 20).loadGraphic(Paths.image('abot/stereoBG'));
+		bg = new FlxSprite(90, 20).loadGraphic(Paths.image('characters/props/abot/stereoBG'));
 		bg.antialiasing = antialias;
 		add(bg);
 
 		var vizX:Float = 0;
 		var vizY:Float = 0;
-		var vizFrames = Paths.getSparrowAtlas('abot/aBotViz');
+		var vizFrames = Paths.getSparrowAtlas('characters/props/abot/aBotViz');
 		for (i in 1...VIZ_MAX+1)
 		{
 			volumes.push(0.0);
@@ -67,22 +67,22 @@ class ABotSpeaker extends FlxSpriteGroup
 		add(eyeBg);
 
 		eyes = new FlxAnimate(-10, 230);
-		Paths.loadAnimateAtlas(eyes, 'abot/systemEyes');
+		Paths.loadAnimateAtlas(eyes, 'characters/props/${invisOutside? "abot/invis" : "abot"}/systemEyes');
 		eyes.anim.addBySymbolIndices('lookleft', 'a bot eyes lookin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], 24, false);
 		eyes.anim.addBySymbolIndices('lookright', 'a bot eyes lookin', [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35], 24, false);
 		eyes.anim.play('lookright', true);
 		eyes.anim.curFrame = eyes.anim.length - 1;
 		add(eyes);
 
-		speaker = abotLol(useDark);
-		if(useDark) {
+		speaker = abotLol(invisOutside);
+		if(invisOutside) {
 			speakerAlt = abotLol(false);
 			speakerAlt.alpha = 0;
 		}
 	}
-	function abotLol(useDark:Bool) {
+	function abotLol(invisOutside:Bool) {
 		var temp = new FlxAnimate(-65, -10);
-		Paths.loadAnimateAtlas(temp, '${useDark? "abot/dark" : "abot"}/abotSystem');
+		Paths.loadAnimateAtlas(temp, 'characters/props/${invisOutside? "abot/invis" : "abot"}/abotSystem');
 		temp.anim.addBySymbol('anim', 'Abot System', 24, false);
 		temp.anim.play('anim', true);
 		temp.anim.curFrame = temp.anim.length - 1;

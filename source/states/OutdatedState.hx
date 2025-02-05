@@ -16,14 +16,14 @@ class OutdatedState extends MusicBeatState
 
 		if (controls.mobileC) {
 			guh = "Sup kiddo, looks like you're running an   \n
-			outdated version of P-Slice Engine (" + MainMenuState.pSliceVersion + "),\n
+			outdated version of P-Slice Engine ReFlavored (" + MainMenuState.psFlavorVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press B to proceed anyway.\n
 			\n
 			Thank you for using the Engine!";
 		} else {
 			guh = "Sup bro, looks like you're running an   \n
-			outdated version of P-Slice Engine (" + MainMenuState.pSliceVersion + "),\n
+			outdated version of P-Slice Engine ReFlavored (" + MainMenuState.psFlavorVersion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			Press ESCAPE to proceed anyway.\n
 			\n
@@ -44,7 +44,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/Psych-Slice/P-Slice/releases");
+				CoolUtil.browserLoad("https://github.com/bobbydeluxe/pslice-reflavored");
 			}
 			else if(controls.BACK) {
 				leftState = true;

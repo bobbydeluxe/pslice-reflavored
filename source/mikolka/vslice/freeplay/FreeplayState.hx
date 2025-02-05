@@ -4,14 +4,10 @@ import mikolka.vslice.freeplay.obj.CapsuleOptionsMenu;
 import mikolka.compatibility.FunkinControls;
 import mikolka.vslice.charSelect.CharSelectSubState;
 import openfl.filters.ShaderFilter;
-import mikolka.vslice.freeplay.backcards.PicoCard;
-import mikolka.vslice.freeplay.backcards.NewCharacterCard;
-import mikolka.vslice.freeplay.backcards.PicoCard;
 import mikolka.funkin.freeplay.FreeplayStyleRegistry;
-import mikolka.vslice.freeplay.backcards.BoyfriendCard;
+import mikolka.vslice.freeplay.backcards.*;
 import shaders.BlueFade;
 import mikolka.funkin.freeplay.FreeplayStyle;
-import mikolka.vslice.freeplay.backcards.BackingCard;
 import mikolka.vslice.freeplay.DJBoyfriend.FreeplayDJ;
 import mikolka.compatibility.ModsHelper;
 import mikolka.compatibility.VsliceOptions;
@@ -284,6 +280,10 @@ class FreeplayState extends MusicBeatSubstate
 				backingCard = new BoyfriendCard(currentCharacter);
 			case 'pico':
 				backingCard = new PicoCard(currentCharacter);
+			case 'spooky':
+				backingCard = new SpookyCard(currentCharacter);
+			case 'gfr':
+				backingCard = new GirlfriendCard(currentCharacter);
 			default:
 				backingCard = new BoyfriendCard(currentCharacter);//new BackingCard(currentCharacter);
 		}

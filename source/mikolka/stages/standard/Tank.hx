@@ -6,10 +6,8 @@ import substates.GameOverSubstate;
 import objects.Character;
 #end
 import mikolka.compatibility.VsliceOptions;
-import mikolka.stages.PicoCapableStage;
 
-
-class Tank extends PicoCapableStage
+class Tank extends BaseStage
 {
 	var tankWatchtower:BGSprite;
 	var tankGround:BackgroundTank;

@@ -141,7 +141,7 @@ class UserErrorSubstate extends MusicBeatSubstate
         function printError(error:CrashData)
         {
             var star = #if CHECK_FOR_UPDATES "" #else "*" #end;
-            printToTrace('P-SLICE ${MainMenuState.pSliceVersion}$star  (${error.message})');
+            printToTrace('PSLICE-REFLAVOR ${MainMenuState.psFlavorVersion}$star  (${error.message})');
             textNextY += 35;
             FlxTimer.wait(1 / 24, () ->
             {
@@ -174,7 +174,7 @@ class UserErrorSubstate extends MusicBeatSubstate
                 printToTrace('TIME:${date_split[1].rpad(" ",9)} DATE:${date_split[0]}');
                 printToTrace('MOD:${error.activeMod.rpad(" ",10)} PE:${MainMenuState.psychEngineVersion.rpad(" ", 5)} SYS:${error.systemName}');
                 printSpaceToTrace();
-                if(isCritical) printToTrace('REPORT TO GITHUB.COM/MIKOLKA9144/P-SLICE');
+                if(isCritical) printToTrace('REPORT TO GITHUB.COM/BOBBYDELUXE/PSLICE-REFLAVORED');
                 else printToTrace('');
                 if(isCritical){
                     if(controls.mobileC) printToTrace('TAP ANYWHERE TO RESTART');
@@ -195,7 +195,7 @@ class UserErrorSubstate extends MusicBeatSubstate
             var star = #if CHECK_FOR_UPDATES "" #else "*" #end;
             dateNow = dateNow.replace(' ', '_');
             dateNow = dateNow.replace(':', "'");
-            errMsg += 'P-Slice ${MainMenuState.pSliceVersion}$star\n';
+            errMsg += 'ReFlavored ${MainMenuState.psFlavorVersion}$star\n';
             errMsg += '\nUncaught Error: ' + error.message + "\n";
             for (x in error.extendedTrace)
             {

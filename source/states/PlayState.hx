@@ -48,7 +48,6 @@ import objects.VideoSprite;
 
 import objects.Note.EventNote;
 import objects.*;
-import mikolka.stages.erect.*;
 import mikolka.stages.standard.*;
 import states.stages.objects.*;
 
@@ -396,22 +395,7 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': new StageWeek1(); 						//Week 1
-			case 'spooky': new Spooky();							//Week 2
-			case 'philly': new Philly();							//Week 3
-			case 'limo': new Limo();								//Week 4
-			case 'mall': new Mall();								//Week 5 - Cocoa, Eggnog
-			case 'mallEvil': new MallEvil();						//Week 5 - Winter Horrorland
-			case 'school': new School();							//Week 6 - Senpai, Roses
-			case 'schoolEvil': new SchoolEvil();					//Week 6 - Thorns
-			case 'tank': new Tank();								//Week 7 - Ugh, Guns, Stress
-			case 'phillyStreets': new PhillyStreets(); 				//Weekend 1 - Darnell, Lit Up, 2Hot
-			case 'phillyBlazin': new PhillyBlazin();				//Weekend 1 - Blazin
-			case 'mainStageErect': new MainStageErect();			//Week 1 Special 
-			case 'spookyMansionErect': new SpookyMansionErect();	//Week 2 Special 
-			case 'phillyTrainErect': new PhillyTrainErect();  		//Week 3 Special 
-			case 'limoRideErect': new LimoRideErect();  			//Week 4 Special 
-			case 'mallXmasErect': new MallXmasErect(); 				//Week 5 Special 
-			case 'phillyStreetsErect': new PhillyStreetsErect(); 	//Weekend 1 Special 
+			case 'tank': new Tank();								//Week 7
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
