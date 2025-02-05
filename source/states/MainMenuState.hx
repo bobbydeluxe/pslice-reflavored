@@ -180,6 +180,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':{
+								#if PSYCH_FPSTATE
 								persistentDraw = true;
 								persistentUpdate = false;
 								// Freeplay has its own custom transition
@@ -196,7 +197,9 @@ class MainMenuState extends MusicBeatState
 									}
 									changeItem(0);
 								});
-								
+								#else
+								MusicBeatState.switchState(new LegacyFreeplayState());
+								#end
 							}
 
 							#if MODS_ALLOWED
