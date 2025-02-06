@@ -75,9 +75,9 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
-	<set name="BUILD_DIR" value="export/debug" if="debug" />
-	<set name="BUILD_DIR" value="export/release" unless="debug" />
-	<set name="BUILD_DIR" value="export/32bit" if="32bits" />
+	<set name="BUILD_DIR" value="_export/debug" if="debug" />
+	<set name="BUILD_DIR" value="_export/release" unless="debug" />
+	<set name="BUILD_DIR" value="_export/32bit" if="32bits" />
 
 	<classpath name="source" />
 
