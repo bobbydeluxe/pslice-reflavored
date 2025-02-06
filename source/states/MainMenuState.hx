@@ -180,7 +180,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':{
-								#if PSYCH_FPSTATE
+								#if VSLICE_FPSTATE
 								persistentDraw = true;
 								persistentUpdate = false;
 								// Freeplay has its own custom transition

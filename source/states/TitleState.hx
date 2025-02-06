@@ -133,7 +133,7 @@ class TitleState extends MusicBeatState
 		FlxG.mouse.visible = false;
 		#if FREEPLAY
 		
-		#if PSYCH_FPSTATE
+		#if VSLICE_FPSTATE
 		MusicBeatState.switchState(new FreeplayState());
 		#else
 		MusicBeatState.switchState(new LegacyFreeplayState());

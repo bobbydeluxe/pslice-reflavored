@@ -39,8 +39,8 @@ xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/
 	<!-- Do you want to check for P-Slice updates?-->
 	<define name="CHECK_FOR_UPDATES"/>
 
-	<!-- Do you want the legacy Psych Engine freeplay?-->
-	<define name="PSYCH_FPSTATE"/>
+	<!-- Do you want the new base FNF freeplay?-->
+	<define name="VSLICE_FPSTATE"/>
 
 	<!-- Do you want to support playing videos in your build?-->
 	<define name="VIDEOS_ALLOWED" if="desktop || mobile" unless="32bits"/> 
