@@ -67,7 +67,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		add(titleText);
 
 		descText = new FlxText(50, 600, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		descText.setFormat(Paths.font("sillyfont.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
 		descText.borderSize = 2.4;
 		add(descText);
@@ -178,10 +178,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 						bindingText.alignment = CENTERED;
 						add(bindingText);
 						
-						final escape:String = (controls.mobileC) ? "B" : "ESC";
-						final backspace:String = (controls.mobileC) ? "C" : "Backspace";
-						
-						bindingText2 = new Alphabet(FlxG.width / 2, 340, Language.getPhrase('controls_rebinding2', 'Hold {1} to Cancel\nHold {2} to Delete', [escape, backspace]), true);
+						bindingText2 = new Alphabet(FlxG.width / 2, 340, Language.getPhrase('controls_rebinding2', (controls.mobileC) ? 'Hold B to Cancel\nHold C to Delete' : 'Hold ESC to Cancel\nHold Backspace to Delete'), true);
 						bindingText2.alignment = CENTERED;
 						add(bindingText2);
 	

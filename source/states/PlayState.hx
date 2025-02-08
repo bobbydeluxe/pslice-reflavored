@@ -1,6 +1,5 @@
 package states;
 
-import mikolka.stages.EventLoader;
 import mikolka.JoinedLuaVariables;
 import substates.StickerSubState;
 import mikolka.vslice.freeplay.FreeplayState;
@@ -49,6 +48,8 @@ import objects.VideoSprite;
 
 import objects.Note.EventNote;
 import objects.*;
+import mikolka.stages.standard.*;
+import states.stages.objects.*;
 
 #if LUA_ALLOWED
 import psychlua.*;
@@ -391,7 +392,11 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		EventLoader.addstage(curStage);
+		switch (curStage)
+		{
+			case 'stage': new StageWeek1(); 						//Week 1
+			case 'tank': new Tank();								//Week 7
+		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
@@ -629,8 +634,8 @@ class PlayState extends MusicBeatState
 		#if TOUCH_CONTROLS_ALLOWED
 		addHitbox();
 		hitbox.visible = true;
-		hitbox.onButtonDown.add(onHintPress);
-		hitbox.onButtonUp.add(onHintRelease);
+		hitbox.onHintDown.add(onHintPress);
+		hitbox.onHintUp.add(onHintRelease);
 		#end
 
 		startCallback();
@@ -2329,16 +2334,12 @@ class PlayState extends MusicBeatState
 				}
 				catch(e:Dynamic)
 				{
-					var errorMsg = "";
-					if(e.message != null){
-						var len:Int = e.message.indexOf('\n') + 1;
-						if(len <= 0) len = e.message.length;
-						errorMsg = e.message.substr(0, len);
-					}
+					var len:Int = e.message.indexOf('\n') + 1;
+					if(len <= 0) len = e.message.length;
 					#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
-					addTextToDebug('ERROR ("Set Property" Event) - ' + errorMsg, FlxColor.RED);
+					addTextToDebug('ERROR ("Set Property" Event) - ' + e.message.substr(0, len), FlxColor.RED);
 					#else
-					FlxG.log.warn('ERROR ("Set Property" Event) - ' + errorMsg);
+					FlxG.log.warn('ERROR ("Set Property" Event) - ' + e.message.substr(0, len));
 					#end
 				}
 
@@ -3100,7 +3101,7 @@ class PlayState extends MusicBeatState
 	#if TOUCH_CONTROLS_ALLOWED
 	private function onHintPress(button:TouchButton):Void
 	{
-		var buttonCode:Int = (button.IDs[0].toString().startsWith('HITBOX')) ? button.IDs[1] : button.IDs[0];
+		var buttonCode:Int = (button.IDs[0].toString().startsWith('HITBOX')) ? button.IDs[0] : button.IDs[1];
 		callOnScripts('onHintPressPre', [buttonCode]);
 		if (button.justPressed) keyPressed(buttonCode);
 		callOnScripts('onHintPress', [buttonCode]);
@@ -3108,7 +3109,7 @@ class PlayState extends MusicBeatState
 
 	private function onHintRelease(button:TouchButton):Void
 	{
-		var buttonCode:Int = (button.IDs[0].toString().startsWith('HITBOX')) ? button.IDs[1] : button.IDs[0];
+		var buttonCode:Int = (button.IDs[0].toString().startsWith('HITBOX')) ? button.IDs[0] : button.IDs[1];
 		callOnScripts('onHintReleasePre', [buttonCode]);
 		if(buttonCode > -1) keyReleased(buttonCode);
 		callOnScripts('onHintRelease', [buttonCode]);
@@ -3124,7 +3125,7 @@ class PlayState extends MusicBeatState
 		var releaseArray:Array<Bool> = [];
 		for (key in keysArray)
 		{
-			holdArray.push(controls.pressed(key)); 
+			holdArray.push(controls.pressed(key));
 			pressArray.push(controls.justPressed(key));
 			releaseArray.push(controls.justReleased(key));
 		}
@@ -3492,7 +3493,7 @@ class PlayState extends MusicBeatState
 		for (script in hscriptArray)
 			if(script != null)
 			{
-				script.call('onDestroy');
+				script.executeFunction('onDestroy');
 				script.destroy();
 			}
 
@@ -3656,7 +3657,7 @@ class PlayState extends MusicBeatState
 		try
 		{
 			newScript = new HScript(null, file);
-			newScript.call('onCreate');
+			newScript.executeFunction('onCreate');
 			trace('initialized hscript interp successfully: $file');
 			hscriptArray.push(newScript);
 		}

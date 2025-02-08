@@ -38,6 +38,37 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
+			['ReFlavored Stuff'],
+			[
+				'BobbyDX',
+				'bobby',
+				'Created P-Slice ReFlavored',
+				'https://github.com/bobbydeluxe',
+				'82faa2' // why tf is the formatting like this
+			],
+			[
+				'darnelldotchud',
+				'chud',
+				'Translated the spookykids backing cards code',
+				'https://github.com/Bfjfjvjnc',
+				'7742d4'
+			],
+			['Blantados', 'blantad', 'DD losing icon', 'https://x.com/Blantados', '64b3fe'],
+			[
+				'HollowSoulxs',
+				'hollow',
+				'Designed the icon',
+				'about:blank',
+				'0080ff'
+			],
+			[
+				'betopia',
+				'betpowo',
+				'GF + Speaker files',
+				'about:blank',
+				'f52c6f'
+			],
+			[""],
 			['P-Slice Engine Team'],
 			['Mikolka9144',			'mikolka',			'Did everything for P-slice',								 'https://gamebanana.com/members/3329541',									'2ebcfa'],
 			['mcagabe19',			'lily',             'Porter of P-slice for mobile devices and creator of linc_luajit-rewritten (used for mobile builds)',                       'https://youtube.com/@mcagabe19',		'FFE7C0'],

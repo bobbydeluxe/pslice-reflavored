@@ -70,7 +70,6 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		FlxG.sound.music.stop();
 		camEditor = initPsychCamera();
 
 		camHUD = new FlxCamera();
@@ -78,6 +77,8 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 		FlxG.cameras.add(camHUD, false);
 
 		loadBG();
+
+		FlxG.sound.playMusic(Paths.music('artisticExpression'));
 
 		silhouettes = new FlxSpriteGroup();
 		add(silhouettes);
@@ -1159,12 +1160,6 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 		var lastLoaded = Paths.currentLevel;
 		Paths.currentLevel = assetFolder;
 
-		/////////////
-		// bg data //
-		/////////////
-		#if !BASE_GAME_FILES
-		camEditor.bgColor = 0xFF666666;
-		#else
 		var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 		add(bg);
 
@@ -1172,7 +1167,6 @@ class CharacterEditorState extends MusicBeatState implements PsychUIEventHandler
 		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 		stageFront.updateHitbox();
 		add(stageFront);
-		#end
 
 		dadPosition.set(100, 100);
 		bfPosition.set(770, 100);

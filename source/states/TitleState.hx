@@ -88,12 +88,12 @@ class TitleState extends MusicBeatState
 		if (ClientPrefs.data.checkForUpdates && !closedState)
 		{
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/mikolka9144/P-Slice/master/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/bobbydeluxe/pslice-reflavored/main/gitVersion.txt");
 
 			http.onData = function(data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.pSliceVersion.trim();
+				var curVersion:String = MainMenuState.psFlavorVersion.trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if (updateVersion != curVersion)
 				{
@@ -647,7 +647,7 @@ class TitleState extends MusicBeatState
 					#end
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					createCoolText(['Funkin Crew Inc', 'Shadow Mario', 'mikolka9144']);
+					createCoolText(['Funkin Crew Inc', 'Shadow Mario', 'mikolka9144', 'bobbyDX']);
 				case 4:
 					addMoreText('present');
 				case 5:

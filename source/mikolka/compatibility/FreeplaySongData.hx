@@ -141,11 +141,8 @@ using mikolka.funkin.utils.ArrayTools;
          // this.songName = songDifficulty.songName;
          // this.difficultyRating = songDifficulty.difficultyRating;
          this.scoringRank = Scoring.calculateRankForSong(Highscore.formatSong(songId, loadAndGetDiffId()));
-         updateIsNewTag();
-         
-     }
-     public function updateIsNewTag() {
-        var wasCompleted = false;
+ 
+         var wasCompleted = false;
          var saveSongName = Paths.formatToSongPath(songId);
          for (x in Highscore.songScores.keys()){
             if(x.startsWith(saveSongName) && Highscore.songScores[x] > 0){

@@ -7,7 +7,6 @@ import objects.Character;
 #end
 import mikolka.compatibility.VsliceOptions;
 
-
 class Tank extends BaseStage
 {
 	var tankWatchtower:BGSprite;
