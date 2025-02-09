@@ -11,7 +11,7 @@
 	"weekBackground": "stage",
 
 	"storyName": "Teaching Time",
-	"weekBefore": "playerpath-bf",
+	"weekBefore": "",
 	"weekName": "Tutorial",
 	"startUnlocked": true,
 

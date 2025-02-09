@@ -2,7 +2,7 @@
 	"storyName": "Daddy Dearest",
 	"hideFreeplay": false,
 	"weekBackground": "stage-pico",
-	"weekBefore": "playerpath-pico",
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
 	"weekCharacters": [
 		"dad",

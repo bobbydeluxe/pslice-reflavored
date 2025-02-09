@@ -3,7 +3,7 @@
 	"difficulties": "Erect,Nightmare",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "",
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
 	"weekCharacters": [
 		"dad",
