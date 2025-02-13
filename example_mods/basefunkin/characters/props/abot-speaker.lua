@@ -26,14 +26,14 @@ function createSpeaker(attachedCharacter, offsetX, offsetY)
         characterType = getCharacterType(attachedCharacter)
     end
 
-    makeLuaSprite('AbotSpeakerBG', 'characters/props/abot/stereoBG')
+    makeLuaSprite('AbotSpeakerBG', 'abot//stereoBG')
     if characterType ~= '' then
         setObjectOrder('AbotSpeakerBG', getObjectOrder(characterType..'Group'))
     end
     addLuaSprite('AbotSpeakerBG')
 
     for bar = 1, 7 do
-        makeAnimatedLuaSprite('AbotSpeakerVisualizer'..bar, 'characters/props/abot/aBotViz')
+        makeAnimatedLuaSprite('AbotSpeakerVisualizer'..bar, 'abot//aBotViz')
         addAnimationByPrefix('AbotSpeakerVisualizer'..bar, 'idle', 'viz'..bar, 24, false)
         if characterType ~= '' then
             setObjectOrder('AbotSpeakerVisualizer'..bar, getObjectOrder(characterType..'Group'))
@@ -49,7 +49,7 @@ function createSpeaker(attachedCharacter, offsetX, offsetY)
     addLuaSprite('AbotEyes')
 
     makeFlxAnimateSprite('AbotPupils')
-    loadAnimateAtlas('AbotPupils', 'characters/props/abot/systemEyes')
+    loadAnimateAtlas('AbotPupils', 'abot//systemEyes')
     if characterType ~= '' then
         setObjectOrder('AbotPupils', getObjectOrder(characterType..'Group'))
     end
@@ -65,7 +65,7 @@ function createSpeaker(attachedCharacter, offsetX, offsetY)
     end
     
     makeFlxAnimateSprite('AbotSpeaker')
-    loadAnimateAtlas('AbotSpeaker', 'characters/props/abot/abotSystem')
+    loadAnimateAtlas('AbotSpeaker', 'abot//abotSystem')
     if characterType ~= '' then
         setObjectOrder('AbotSpeaker', getObjectOrder(characterType..'Group'))
     end
