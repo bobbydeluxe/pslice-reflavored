@@ -61,13 +61,6 @@ class CreditsState extends MusicBeatState
 				'about:blank',
 				'0080ff'
 			],
-			[
-				'betopia',
-				'betpowo',
-				'GF + Speaker files',
-				'about:blank',
-				'f52c6f'
-			],
 			[""],
 			['P-Slice Engine Team'],
 			['Mikolka9144',			'mikolka',			'Did everything for P-slice',								 'https://gamebanana.com/members/3329541',									'2ebcfa'],
